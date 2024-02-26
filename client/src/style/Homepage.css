@@ -1,0 +1,117 @@
+.Homepage{
+    width: 100%;
+}
+.homepage-container{
+    /* margin: 0 5vw; */
+}
+.homepage-first{
+    background-image: url(https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    width: 100%;
+    min-height: 95vh;
+    background-position: center center;
+}
+.homepage-notifaction{
+    padding-top: 20px;
+    color: white;
+    font-weight: 600;
+}
+.homepage-first-text-first{
+    text-align: center;
+    color: white;
+    font-size: 80px;
+    font-weight: 900;
+    padding: 10vh 5vw;
+}
+.homepage-first-text-sec{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    font-weight: 1000;
+    padding-inline: 5vw;
+}
+
+
+/* ABOUT   ///////////////// */
+.about{
+    width: 100%;
+}
+.about-heading{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+}
+.about-heading span{
+    color: green;
+}
+.about-container{
+    margin: 0 5vw;
+    display: grid;
+    grid-template-columns: 40vw auto;
+}
+.about-image{
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 90%;
+    max-height: 90vh;
+    box-shadow: 10px 10px 15px 1px black;
+}
+.about-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly !important;
+}
+.about-text p{
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+
+/* GALLARY  /////////// */
+.gallery{
+    width: 100%;
+}
+.gallery-container{
+    margin: 0 5vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.gallery-card{}
+.gallery-card img{
+    width: 95%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 2px solid green;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px 1px black;
+}
+.gallery-card img:hover{
+    scale: 1.05;
+}
+.image-model-full{
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+}
+.image-model-close{
+    padding: 20px;
+    font-size: 35px;
+    position: absolute;
+    right: 10px;
+    color: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.image-model-full img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

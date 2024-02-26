@@ -1,0 +1,52 @@
+.footer{
+    width: 100%;
+    background-color: #dadada;
+    margin-top: 40px;
+}
+.footer-container{
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-card{
+   
+}
+.footer-card div{
+   margin-block: 8px;
+   font-size: 14px;
+   font-weight: 700;
+   opacity: 0.7;
+   cursor: pointer;
+}
+.footer-card-heading{}
+.footer-schoollogo{
+    width: 120px;
+}
+.footer-card-icons{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-card-icons span{
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+
+.footer-bootom{
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-weight: 700;
+}
+
+.footer-bootom div{
+    font-size: 14px;
+}
+.footer-bootom a{
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+}

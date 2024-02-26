@@ -1,0 +1,41 @@
+.navbar{
+    width: 100%;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: white;
+}
+.navbar-container{
+    height: 60px;
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-logo{
+    width: 120px;
+    height: 50px;
+}
+.navbar-tem{
+    display: flex;
+    align-items: center;
+}
+.navbar-item{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.navbar-item:hover{
+}
+.navbar-login-button{
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
