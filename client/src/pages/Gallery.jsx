@@ -12,8 +12,8 @@ const Gallery = () => {
      <div className="gallery">
         <h1 className="about-heading">OUR <span>GALLERY</span></h1>
         <div className="gallery-container">
-          {['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1']?.map(()=>(
-            <div className="gallery-card">
+          {['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1']?.map((p, index)=>(
+            <div className="gallery-card" key={index}>
             <img onClick={()=> {setImageModel(image), setImageOpen(true)} } src={image} alt="" />
           </div>
           ))}

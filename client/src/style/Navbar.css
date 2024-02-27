@@ -27,6 +27,13 @@
     color: black;
     font-weight: 700;
 }
+.navbar-item-image{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
 .navbar-item:hover{
 }
 .navbar-login-button{

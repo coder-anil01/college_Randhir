@@ -41,8 +41,8 @@ const Reviews = () => {
      <h1 className="about-heading">STUDENTS <span>REVIEWS</span></h1>
         <div className="review-container">
           <Slider {...settings}>
-            {['1','1','1','1','1','1','1','1','1',].map(()=>(
-            <div className="review-card">
+            {['1','1','1','1','1','1','1','1','1',].map((p, index)=>(
+            <div className="review-card" key={index}>
               <img src={image} alt="" />
               <div>Rahul raj</div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus culpa, illo quibusdam minus quia iusto hic debitis nesciunt atque voluptatem.</p>
