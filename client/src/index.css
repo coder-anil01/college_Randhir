@@ -24,10 +24,11 @@ code {
 
 ::-webkit-scrollbar {
   width: 5px;
-  background-color: #0e193f;
+  /* background-color: white; */
+  background-color: none !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: #00000063;
   border-radius: 10px;
 }

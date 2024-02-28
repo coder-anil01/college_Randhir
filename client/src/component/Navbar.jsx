@@ -18,10 +18,11 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <div className="navbar-container">
-            <NavLink to='/'><img className='navbar-logo' src={Schoollogo} alt="" /></NavLink>
+            <NavLink to='/' className='navbar-logo'><img className='navbar-logo' src={Schoollogo} alt="" /></NavLink>
             <div className="navbar-tem">
                 <NavLink to='/courses' className='navbar-item'>COURSES</NavLink>
                 <NavLink to='/contact' className='navbar-item'>CONTACT</NavLink>
+                <NavLink to='/eligibity' className='navbar-item'>ELIGIBITY</NavLink>
                 {auth?.user ? <NavLink to={auth?.user?.role === 8987 ? '/admin':'/dashbord'}><img src={auth?.user?.profileImg} alt="" className='navbar-item-image'/></NavLink> :
                 <><div onClick={()=>setLoginModel(prev=> !prev)} className={loginModel ? 'navbar-login-button active': 'navbar-login-button'} >LOGIN / SIGNUP</div></>}
             </div>

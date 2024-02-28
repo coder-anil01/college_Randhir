@@ -1,0 +1,29 @@
+/* GLOBAL DASHBORD */
+.userDashbord{
+    width: 100%;
+}
+.userDashbord-container{
+    padding: 0 5vw;
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+
+.user-Menu{
+    display: flex;
+    flex-direction: column;
+    min-height: 93vh;
+}
+.user-Menu a{
+    text-decoration: none;
+    color: white;
+    background-color: green;
+    padding: 10px 20px;
+    margin-block: 2px;
+    border-radius: 5px;
+}
+
+
+.menu-active{
+    background-color: #ff18bd !important;
+}

@@ -70,3 +70,31 @@ export const loginUser = async(req, res) => {
           });
     }
 }
+
+
+
+
+// Admin Check
+export const checkAuth = async(req, res) => {
+    const {id} = req.body;
+    try {
+        const admin = await userModel.findById(id);
+        if(admin?.user?.role === 8987){
+            res.status(200).send({
+                success: true,
+                message: "Welcome Admin",
+            })
+        }else{
+            res.status(200).send({
+                success: false,
+                message: "Unauthorize Access",
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            error,
+          });
+    }
+}

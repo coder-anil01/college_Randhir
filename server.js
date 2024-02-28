@@ -6,6 +6,7 @@ import connectDb from './db.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import userRoute from './routes/userRoute.js'
+import userAdmitionRoute from './routes/userAdmitionRoute.js'
 
 dotenv.config();
 connectDb();
@@ -23,7 +24,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, "./client/dist")))
 
-app.use('/api/vi/user', userRoute);
+app.use('/api/v1/user', userRoute);
+app.use('/api/v1/admition', userAdmitionRoute);
 
 app.use('*', function(req, res){
     res.sendFile(path.join(__dirname, "./client/dist/index.html"))

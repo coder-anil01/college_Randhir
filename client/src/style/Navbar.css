@@ -16,6 +16,7 @@
 .navbar-logo{
     width: 120px;
     height: 50px;
+    background-color: transparent !important;
 }
 .navbar-tem{
     display: flex;
@@ -23,10 +24,17 @@
 }
 .navbar-item{
     padding: 10px 20px;
+    margin-inline: 10px;
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: 700;
+    background-color: green;
+    border-radius: 5px;
 }
+
+
+
+
 .navbar-item-image{
     width: 40px;
     height: 40px;

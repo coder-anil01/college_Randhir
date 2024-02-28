@@ -7,6 +7,7 @@ import { IoIosMail } from "react-icons/io";
 import {useDropzone} from 'react-dropzone'
 import { GiBrain } from "react-icons/gi";
 import { RiUpload2Fill } from "react-icons/ri";
+import { toast } from 'react-toastify';
 
 
 const Register = (props) => {
@@ -42,20 +43,20 @@ const Register = (props) => {
     try {
       setLoading('Loading...')
         if(!profileImg){
-            return setLoading('Create'), alert('Plese Upload Image');
+            return setLoading('Create'), toast('Plese Upload Image');
         }
-        const {data} = await axios.post('/api/vi/user/create', {name, email, password, answer, profileImg});
+        const {data} = await axios.post('/api/v1/user/create', {name, email, password, answer, profileImg});
         setLoading('Create');
         if(data.success){
           handleSend();
           localStorage.setItem('auth', JSON.stringify(data))
           setAuth({...auth, user: data?.user, token: data?.token});
-          alert(data.message);
+          toast(data.message);
         }else{
-          alert(data.message);
+          toast.info(data.message);
         }
     } catch (error) {
-        console.log(error);
+        toast.error('Somthing Went Wrong')
         setLoading('Create')
     }
   }
@@ -110,7 +111,7 @@ const Register = (props) => {
             {
               isDragActive ? <div>Drop the files here ...</div> :
                 <>{profileImg ? <img src={profileImg} alt="" className='login-form-image' /> :
-                <><RiUpload2Fill className='login-form-image-icon'/> <div>Upload Profile Picture</div></>}
+                <><RiUpload2Fill className='login-form-image-icon'/> <div>Profile</div></>}
             </>}
           </div>
 
