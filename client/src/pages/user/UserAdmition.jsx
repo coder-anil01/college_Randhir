@@ -7,24 +7,31 @@ import { RiUpload2Fill } from 'react-icons/ri';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
+import AdminMenu from '../admin/AdminMenu';
 
 const UserAdmition = () => {
   
     const [auth] = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState();
     const [dob, setDob] = useState('');
     const [course, setCourse] = useState('');
     const [fatherName, setFatherName] = useState('');
     const [motherName, setMotherName] = useState('');
+    const [profile, setPfofile] = useState('');
     const [aadharcard, setAadharcard] = useState('');
     const [prevCertificate, setPrevCertificate] = useState('');
     const [otherDocument, setOtherDocument] = useState([]);
     const [submitButton, setSubmitButton] = useState('Submit')
 
+    const user = auth?.user?.role;
+
     useEffect(()=>{
-      setName(auth?.user?.name);
-      setEmail(auth?.user?.email);
+      if(user ===0){
+        setName(auth?.user?.name);
+        setEmail(auth?.user?.email);
+      }
     },[auth])
 
 // image compress
@@ -41,7 +48,6 @@ const UserAdmition = () => {
           reader.readAsDataURL(compressedFile);
           reader.onloadend = () => {
             work(prev => [...prev, reader.result])
-            console.log(reader.result)
           };
         } catch (error) {
           console.error('Error compressing image:', error);
@@ -60,16 +66,14 @@ const UserAdmition = () => {
   const handleSubmit = async() => {
     setSubmitButton('Uploading...')
     try {
-      if(aadharcard && prevCertificate && fatherName && motherName && dob){
-        const {data} = await axios.post('/api/v1/admition/create', {name,email,profileImg:auth?.user?.profileImg,dob,course,fatherName,motherName,aadharcard,prevCertificate,otherDocument});
-        if(data.success){
+      if(aadharcard && prevCertificate && fatherName && motherName && dob && course && phone){
+        const {data} = await axios.post('/api/v1/admition/create', {name,email,phone,profileImg:profile || auth?.user?.profileImg, dob,course,fatherName,motherName,aadharcard,prevCertificate,otherDocument});
           setSubmitButton('Submit');
           toast(data.message);
-          setName(''), setEmail(''), setDob(''), setCourse(''), setFatherName(''), setMotherName(''),setAadharcard(''),setPrevCertificate(''), setOtherDocument([]);
-        }else{
-          return toast.info(data.message);
-        }
-      } setSubmitButton('Submit'), toast.info("Plese fill required fields");
+          setName(''), setEmail(''), setPhone(null), setDob(''), setCourse(''), setFatherName(''), setMotherName(''),setAadharcard(''),setPrevCertificate(''), setOtherDocument([]);
+      }else{
+        setSubmitButton('Submit'), toast.info("Plese fill required fields");
+      }
     } catch (error) {
         toast.error('Somthing Went Wtong');
         setSubmitButton('Submit');
@@ -80,7 +84,7 @@ const UserAdmition = () => {
   return (
     <div className="userDashbord">
         <div className="userDashbord-container">
-            <div><UserMenu/></div>
+            <div>{user === 8987 ? <div><AdminMenu/></div> : <UserMenu/>}</div>
             <div className='admition'>
                 <div className="admition-container">
 
@@ -90,7 +94,8 @@ const UserAdmition = () => {
                             value={name}
                             onChange={(e)=>setName(e.target.value)}
                              className="admition-input"
-                             placeholder='Your Name'/>
+                             placeholder='Your Name'
+                             disabled={user === 0}/>
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Email <span>*</span></div>
@@ -98,7 +103,16 @@ const UserAdmition = () => {
                             value={email}
                             onChange={(e)=>setEmail(e.target.value)}
                              className="admition-input"
-                             placeholder='Your Email'/>
+                             placeholder='Your Email'
+                             disabled={user === 0}/>
+                    </div>
+                    <div className="admition-item-card">
+                        <div className="admition-item-lable">Phone Number <span>*</span></div>
+                        <input type="Number"
+                            value={phone}
+                            onChange={(e)=>setPhone(e.target.value)}
+                             className="admition-input"
+                             placeholder='Your Phone Number'/>
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Date Of Birth <span>*</span></div>
@@ -131,6 +145,12 @@ const UserAdmition = () => {
                             onChange={(e)=>setMotherName(e.target.value)}
                              className="admition-input"
                              placeholder='Your Course'/>
+                    </div>
+                   <div className="admition-item-card">
+                        <div className="admition-item-lable">Student Photo <span>*</span></div>
+                        <input type="file"
+                            onChange={(e)=> handleImageChange(e.target.files[0], setPfofile)}
+                             className="admition-input" />
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">My Aadhar Card <span>*</span></div>

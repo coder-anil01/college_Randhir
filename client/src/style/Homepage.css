@@ -14,6 +14,7 @@
     padding-top: 20px;
     color: white;
     font-weight: 600;
+    text-shadow: 1px 1px 4px black;
 }
 .homepage-first-text-first{
     text-align: center;
@@ -21,6 +22,8 @@
     font-size: 80px;
     font-weight: 900;
     padding: 10vh 5vw;
+    text-shadow: 5px 5px 6px black;
+    animation: fadeInOp 1s ease-in-out forwards;
 }
 .homepage-first-text-sec{
     text-align: center;
@@ -28,7 +31,19 @@
     color: white;
     font-weight: 1000;
     padding-inline: 5vw;
+    text-shadow: 4px 4px 16px black;
+    animation: fadeInOp 1s ease-in-out forwards;
 }
+@keyframes fadeInOp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 
 /* ABOUT   ///////////////// */
@@ -40,6 +55,7 @@
     text-align: center;
     font-size: 50px;
     font-weight: 900;
+    animation: fadeInOp 1s ease-in-out forwards;
 }
 .about-heading span{
     color: green;
@@ -76,18 +92,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 .gallery-card{}
 .gallery-card img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
     width: 95%;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 5px !important;
     border: 2px solid green;
     transition: all 0.3s;
     cursor: pointer;
-    box-shadow: 3px 3px 8px 1px black;
+    box-shadow: 3px 3px 5px 1px green;
 }
 .gallery-card img:hover{
     scale: 1.05;

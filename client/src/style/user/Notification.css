@@ -1,0 +1,12 @@
+.user-admition-notifaction-card{
+    background-color: green;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.user-admition-notifaction-name{}
+.user-admition-notifaction-status{}
+.user-admition-notifaction-course{}

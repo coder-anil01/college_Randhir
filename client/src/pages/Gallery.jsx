@@ -1,20 +1,33 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { IoClose } from "react-icons/io5";
 
 const Gallery = () => {
 
-    const image ='https://www.thepillarspublicschool.in/images/gallery/2131108444.jpeg'
+    const [fetchimage, setFetchimage] = useState([]);
     const[imageOpen, setImageOpen] = useState(false)
     const[imageModel, setImageModel] = useState('');
+
+    const getImages = async() => {
+      try {
+          const {data} = await axios.get('/api/v1/gallery/get')
+          setFetchimage(data?.images)
+      } catch (error) {
+          console.log(error);
+      }
+  }
+  useEffect(()=>{
+      getImages();
+  },[])
 
   return (
     <>
      <div className="gallery">
         <h1 className="about-heading">OUR <span>GALLERY</span></h1>
         <div className="gallery-container">
-          {['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1']?.map((p, index)=>(
+          {fetchimage?.map((p, index)=>(
             <div className="gallery-card" key={index}>
-            <img onClick={()=> {setImageModel(image), setImageOpen(true)} } src={image} alt="" />
+            <img onClick={()=> {setImageModel(p?.gallery), setImageOpen(true)} } src={p?.gallery} alt="School Image" />
           </div>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthProvider';
 import axios from 'axios';
 
@@ -7,6 +7,7 @@ const AdminRouter = () => {
 
   const [auth] = useAuth();
     const [admin, setAdmin] = useState(false);
+    const navigate = useNavigate();
 
     const authCheck = async() => {
         try {
@@ -27,7 +28,7 @@ const AdminRouter = () => {
 
   return (
     <div>
-      {admin ? <Outlet/> : "Login"}
+      {admin ? <Outlet/> : navigate('/')}
     </div>
   )
 }

@@ -8,11 +8,14 @@ const useradmitionSchema = new mongoose.Schema(
     email:{
       type: String,
     },
+    phone:{
+      type: Number,
+    },
     profileImg:{
         type: String,
     },
     dob:{
-        type: Date,
+        type: String,
     },
     course:{
         type: String,
@@ -32,6 +35,10 @@ const useradmitionSchema = new mongoose.Schema(
     otherDocument:[{
         type: String,
     },],
+    status:{
+        type: String,
+        default: "Pending"
+    }
   },
   { timestamps: true }
 );

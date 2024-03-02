@@ -1,4 +1,14 @@
 .active{
   background-color: #ff18bd;
+  color: white;
   border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(500px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

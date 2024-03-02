@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     details:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'address'
+      ref: 'usersdetails'
     }
   },
   { timestamps: true }

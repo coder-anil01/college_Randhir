@@ -5,6 +5,9 @@ const userdetailsSchema = new mongoose.Schema(
     dob:{
         type: Date,
     },
+    phone:{
+        type: Number,
+      },
     course:{
         type: String,
     },
@@ -20,9 +23,9 @@ const userdetailsSchema = new mongoose.Schema(
     prevCertificate:{
         type: String,
     },
-    otherDocument:{
+    otherDocument:[{
         type: String,
-    },
+    },],
   },
   { timestamps: true }
 );

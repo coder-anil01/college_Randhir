@@ -8,7 +8,7 @@ import {useDropzone} from 'react-dropzone'
 import { GiBrain } from "react-icons/gi";
 import { RiUpload2Fill } from "react-icons/ri";
 import { toast } from 'react-toastify';
-
+import imageCompression from 'browser-image-compression';
 
 const Register = (props) => {
 
@@ -24,17 +24,31 @@ const Register = (props) => {
     props.handleSend(false);
   };
 
+  // image compress
+  const options = {
+    maxSizeMB: 0.01,
+    maxWidthOrHeight: 200,
+    useWebWorker: true
+  };
+
 // IMAGE HANDLE
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
-    const render = new FileReader();
-    if(file){
-      render.readAsDataURL(file);
-      render.onload = () => {
-        setProfileImg(render.result)
-      }
-    }
+    handleImageChange(file)
   }, [])
+
+  const handleImageChange = async (image) => {
+    try {
+      const compressedFile = await imageCompression(image, options);
+      const reader = new FileReader();
+      reader.readAsDataURL(compressedFile);
+      reader.onloadend = () => {
+        setProfileImg(reader.result)
+      };
+    } catch (error) {
+      console.error('Error compressing image:', error);
+    }
+  };
   
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 

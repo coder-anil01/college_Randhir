@@ -1,0 +1,36 @@
+.user-dashbord-review-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+
+.user-dashbord-review-card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+}
+.user-dashbord-review-star-card{
+    width: 140px;
+    display: flex;
+    color: gold;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+.user-dashbord-review-star-card div{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.user-dashbord-review-card button{
+    border: none;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    margin-block: 20px;
+    cursor: pointer;
+}

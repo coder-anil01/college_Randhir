@@ -1,0 +1,99 @@
+/* SWITCH */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float: right;
+}
+
+.toggle-switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .toggle-slider {
+    background-color: green;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-slider.round {
+    border-radius: 34px;
+}
+
+.toggle-slider.round:before {
+    border-radius: 50%;
+}
+
+.toggle-label {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+
+
+
+
+.admin-dashbord-reviews{
+    padding-left: 5vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.admin-dashbord-reviews-card{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 1px black;
+}
+.admin-dashbord-reviews-card div{
+    margin-block: 10px;
+}
+.admin-dashbord-reviews-img{
+    width: 100px;
+    height: 100px;
+}
+
+.admin-dashbord-reviews-name{
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+.admin-dashbord-star{
+    color: gold;
+    font-size: 25px;
+    display: flex;
+}
+.admin-dashbord-reviews-message{}
+
+.admin-dashbord-star div{
+    margin-inline: 5px;
+}

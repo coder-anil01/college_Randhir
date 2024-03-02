@@ -23,6 +23,10 @@ import AdminNotifaction from './pages/admin/AdminNotifaction'
 import PaidFees from './pages/admin/PaidFees'
 import AdminRouter from './pages/admin/AdminRouter'
 import OurStudents from './pages/admin/OurStudents'
+import AdmitionPending from './pages/admin/AdmitionPending'
+import UserReview from './pages/user/UserReview'
+import AdminReviws from './pages/admin/AdminReviws'
+import GalleryDashbord from './pages/admin/GalleryDashbord'
 
 const App = () => {
 
@@ -30,7 +34,8 @@ const App = () => {
     <>
     <Router>
       <Navbar/>
-        <ToastContainer />
+        <ToastContainer
+        autoClose={2000} />
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/courses' element={<Courses/>}/>
@@ -44,15 +49,19 @@ const App = () => {
             <Route path='admition' element={<UserAdmition/>}/>
             <Route path='chat' element={<Chat/>}/>
             <Route path='notifaction' element={<Notifacction/>}/>
+            <Route path='review' element={<UserReview/>}/>
             <Route path='fees' element={<Fees/>}/>
           </Route>
 
 {/* ADMIN */}
           <Route path='/admin' element={<AdminRouter/>}>
             <Route path='' element={<AdminDashbord/>}/>
+            <Route path='admitionpending' element={<AdmitionPending/>}/>
             <Route path='newadmition' element={<NewAdmition/>}/>
             <Route path='allusers' element={<AllUser/>}/>
             <Route path='ourstudents' element={<OurStudents/>}/>
+            <Route path='reviews' element={<AdminReviws/>}/>
+            <Route path='gallery' element={<GalleryDashbord/>}/>
             <Route path='chat' element={<AdminChat/>}/>
             <Route path='notifaction' element={<AdminNotifaction/>}/>
             <Route path='fees' element={<PaidFees/>}/>

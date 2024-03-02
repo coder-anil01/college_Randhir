@@ -1,0 +1,54 @@
+.admin-upload-img-container{
+    padding-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-upload-img-show-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.admin-upload-img-show-card img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+.admin-upload-img-button{
+    background-color: green;
+    border: none;
+    width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* show */
+.admin-gallery-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.admin-gallery-card{}
+.admin-gallery-card img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    width: 95%;
+    border-radius: 5px !important;
+    border: 2px solid green;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 1px green;
+}
+
+
+.admin-image-model-delete{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 30px;
+    color: red;
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../style/Reviews.css'
+import axios from "axios";
+import { FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa6";
+
 const Reviews = () => {
 
-  const image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrXNhD58kX4jr1e7YWAvxPqsrSSen12iAie8YhzwOQ_zIwUeasp5Gl&usqp=CAE&s'
+  const [reviews, setReviews] = useState([]);
 
   const settings = {
     dots: false,
@@ -35,17 +39,34 @@ const Reviews = () => {
     ],
   };
 
+  const getReviews = async () => {
+    try {
+      const {data} = await axios.get('/api/v1/review/getpublish')
+      setReviews(data.reviews)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+    getReviews();
+  },[])
+
   return (
     <>
      <div className="review">
      <h1 className="about-heading">STUDENTS <span>REVIEWS</span></h1>
         <div className="review-container">
           <Slider {...settings}>
-            {['1','1','1','1','1','1','1','1','1',].map((p, index)=>(
-            <div className="review-card" key={index}>
-              <img src={image} alt="" />
-              <div>Rahul raj</div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus culpa, illo quibusdam minus quia iusto hic debitis nesciunt atque voluptatem.</p>
+            {reviews.map((r)=>(
+            <div className="review-card" key={r?._id}>
+              <img src={r?.profileImg} alt="" />
+              <div>{r?.name}</div>
+              <div className='admin-dashbord-star'>
+                        {[1,1,1,1,1].map((s, index)=>(
+                          <div key={index}>{index >= r?.star ? <FaRegStar/>:<FaStar/>}</div>
+                        ))}
+                    </div>
+              <p>{r?.message.slice(0,500)}...</p>
             </div>
             ))}
           </Slider>

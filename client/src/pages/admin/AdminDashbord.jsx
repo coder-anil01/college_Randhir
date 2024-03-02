@@ -3,12 +3,14 @@ import AdminMenu from './AdminMenu'
 
 const AdminDashbord = () => {
   return (
-    <div className="userDashbord">
+    <>
+     <div className="userDashbord">
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
-            <div>Dashbord</div>
+            <div className='admin'></div>
         </div>
-    </div> 
+    </div>  
+    </>
   )
 }
 

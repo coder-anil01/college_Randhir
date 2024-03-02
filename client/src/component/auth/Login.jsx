@@ -4,6 +4,7 @@ import { FaLock} from 'react-icons/fa';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthProvider';
 import { IoIosMail } from "react-icons/io";
+import { toast } from 'react-toastify';
 
 const Login = (props) => {
 
@@ -20,15 +21,15 @@ const Login = (props) => {
     e.preventDefault();
     setLoading('Loading...')
     try {
-        const {data} = await axios.post('/api/vi/user/login', {email, password});
+        const {data} = await axios.post('/api/v1/user/login', {email, password});
         setLoading('Login');
         if(data.success){
-          alert(data?.message)
+          toast(data?.message)
           localStorage.setItem('auth', JSON.stringify(data));
           setAuth({...auth, user: data?.user, token: data?.token});
           handleSend();
         }else{
-          alert(data.message);
+          toast(data?.message);
         }
     } catch (error) {
         console.log(error);

@@ -1,0 +1,135 @@
+.admin-admition{
+    width: 100%;
+}
+.admin-admition-container{
+    padding-left: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+.admition-card{
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr 1fr auto auto;
+    background-color: green;
+    margin-block: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.admition-card div{
+    padding-block: 20px;
+}
+.admition-index{
+    background-color: #ff18bd;
+    width: 30px;
+    text-align: center;
+}
+.admition-name{
+    margin-inline: 10px;
+}
+.admition-email{}
+.admition-course{}
+.admition-phone{
+    width: 130px;
+    margin-inline: 10px;
+}
+.admition-date{
+    width: 100px;
+}
+
+
+
+
+/* MODEL */
+.admition-model{
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 90%;
+    max-width: 800px;
+    min-height: 80%;
+    border-radius: 10px;
+}
+.admition-model-close{
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: green;
+    font-size: 20px;
+    cursor: pointer;
+}
+.admition-model-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.admition-model-profile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.admition-model-profile img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-inline: 20px;
+}
+.admition-model-docs{
+    border: 1px solid green;
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.admition-model-docs p{
+    font-size: 14px;
+}
+.admition-model-docs img{
+    height: 80px;
+    object-fit: cover;
+}
+
+.admition-model-card{
+   width: 40%;
+   margin: 5px;
+}
+.admition-model-lable{
+    margin-block: 5px;
+    font-size: 14px;
+}
+.admition-model-lable span{
+    color: red;
+}
+.admition-model-text{
+    width: 80%;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid green;
+}
+
+.admition-model-button{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-block: 30px;
+}
+.admition-model-button button{
+    color: white;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.admition-model-button-reject{
+    background-color: red;
+}
+.admition-model-button-accept{
+    background-color: green;
+}

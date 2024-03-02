@@ -34,7 +34,6 @@ export const userRegister = async(req, res) => {
             })
         }
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success: false,
             message: "Internal server error",
@@ -71,15 +70,57 @@ export const loginUser = async(req, res) => {
     }
 }
 
+export const getMyData = async(req, res) => {
+    const {id} = req.body;
+    try {
+        const user = await userModel.findById(id).populate('details');
+        if(user.details){
+            const token = await JWT.sign({user}, jwtsecret);
+            res.status(200).send({
+                success: true,
+                user,
+                token,
+            })
+        }else{
+            res.status(200).send({
+                success: false,
+                message: "Not Found Other Documents",
+            })
+        } 
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            error,
+          });
+    }
+}
 
 
+//****************************/ ADMIN /*************************************//
+// User Get
+export const getUser = async(req, res) => {
+    try {
+        const users = await userModel.find({}).sort({ createdAt: -1});
+        res.status(200).send({
+            success: true,
+            users,
+        })
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            error,
+          });
+    }
+}
 
 // Admin Check
 export const checkAuth = async(req, res) => {
     const {id} = req.body;
     try {
         const admin = await userModel.findById(id);
-        if(admin?.user?.role === 8987){
+        if(admin?.role === 8987){
             res.status(200).send({
                 success: true,
                 message: "Welcome Admin",
@@ -91,6 +132,24 @@ export const checkAuth = async(req, res) => {
             })
         }
     } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            error,
+          });
+    }
+}
+
+// OUR STUDENT
+export const ourStudent = async(req, res) => {
+    try {
+        const users = await userModel.find({details: { $exists: true }}).populate('details')
+        res.status(200).send({
+            success: true,
+            users,
+        })
+    } catch (error) {
+        console.log(error)
         res.status(500).send({
             success: false,
             message: "Internal server error",

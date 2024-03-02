@@ -1,5 +1,46 @@
-.user-dashbord{}
-.user-dashbord-container{}
-.user-dashbord-item-card{}
-.user-dashbord-item-card div{}
-.user-dashbord-item-card input{}
+.user-dashbord{
+    width: 100%;
+}
+.user-dashbord-container{
+    padding: 2vw 5vw;
+}
+.user-dashborddata{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.user-dashborddata-img-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-dashborddata-img-lable{}
+.user-dashborddata-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-dashborddata-card{
+    width: 45%;
+    margin: 10px;
+}
+.user-dashborddata-lable{
+    margin-block: 5px;
+}
+.user-dashborddata-text{
+    padding: 10px 20px;
+    width: 90%;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+/* DOCUMENT */
+.user-dashborddata-link-card{
+    width: 100%;
+    margin-block: 10px;
+}
+.user-dashborddata-link-lable{}
+.user-dashborddata-link-link{}
