@@ -11,14 +11,18 @@ const AdmitionPending = () => {
   const [allAdmition, setAllAdmition] = useState([]);
   const [selectedData, setSelectedData] = useState('');
   const [openModel, setOpenModel] = useState(false);
+  const [loading, setLoading] = useState('Loading...');
 
   const getAdmition = async() => {
     try {
       const {data} = await axios.get('/api/v1/admition/get');
-      console.log(data?.admition?.[0])
       setAllAdmition(data.admition)
+      if(!data?.admition[0]){
+        setLoading('Data Not Found')
+      }
     } catch (error) {
       console.log(error)
+      setLoading('Network Problem')
     }
   }
   useEffect(()=>{
@@ -61,7 +65,7 @@ const AdmitionPending = () => {
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
             <div className='admin-admition'>
-              <div className="admin-admition-container">
+              {allAdmition[0] ? <div className="admin-admition-container">
                 {allAdmition?.map((a, index)=>(
                   <div className="admition-card" key={a?._id} onClick={()=>handleOpenModel(a)}>
                     <div className="admition-index">{index+1} .</div>
@@ -70,7 +74,7 @@ const AdmitionPending = () => {
                     <div className="admition-date">{new Date(a?.createdAt).toLocaleString().slice(0,10)}</div>
                   </div>
                 ))}
-              </div>
+              </div> : <div className='show-loading-loader'>{loading}</div>}
             </div>
         </div>
     </div>

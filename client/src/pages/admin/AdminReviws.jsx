@@ -34,7 +34,7 @@ const AdminReviws = () => {
     <div className="userDashbord">
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
-            <div className='admin-dashbord-reviews'>
+            {reviews[0] ?<div className='admin-dashbord-reviews'>
               {reviews?.map((r)=> (
                 <div className='admin-dashbord-reviews-card'>
                   <label class="toggle-switch">
@@ -51,7 +51,7 @@ const AdminReviws = () => {
                   <div className="admin-dashbord-reviews-message">{r?.message}</div>
                 </div>
               ))}
-            </div>
+            </div> : <div className='show-loading-loader'>Loading...</div>}
         </div>
     </div> 
   )
