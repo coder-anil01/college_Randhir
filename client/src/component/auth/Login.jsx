@@ -49,7 +49,7 @@ const Login = (props) => {
               onChange={(e)=> setEmail(e.target.value)}
               placeholder='Enter Your Email'
               className='login-form-input'
-              required/>
+              autoFocus required/>
           </div>
 
           <div className='login-form-items'>

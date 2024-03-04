@@ -43,10 +43,16 @@ export const userAdmitionCheck = async(req, res) => {
     const {email, name} = req.body;
     try {
         const admition = await userAdmitionModel.findOne({email, name});
-        res.status(200).send({
-            success: true,
-            admition,
-        })
+        if(admition){
+            return res.status(200).send({
+                success: true,
+                admition,
+            });
+        }else{
+            res.status(200).send({
+                success: false,
+            });
+        }
     } catch (error) {
         console.log(error)
         res.status(500).send({

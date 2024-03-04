@@ -39,7 +39,7 @@ const UserReview = () => {
                           <div key={index} onClick={()=>handleStar(index)}>{index > starlength ? <FaRegStar/>:<FaStar/>}</div>
                         ))}
                       </div>
-                      <textarea value={message} onChange={(e)=> setMessage(e.target.value)} cols="50" rows="10"></textarea>
+                      <textarea value={message} onChange={(e)=> setMessage(e.target.value)} className='user-dashbord-review-message' ></textarea>
                       <button onClick={handleReview}>Submit</button>
                     </div>
                   </div>

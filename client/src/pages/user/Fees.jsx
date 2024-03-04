@@ -4,13 +4,17 @@ import UserMenu from './UserMenu'
 const Fees = () => {
   return (
     <>
-    <div className="userDashbord">
-      <div className="userDashbord-container">
-          <div><UserMenu/></div>
-          <div>Fees</div>
-      </div>
-  </div> 
-  </>
+      <div className="userDashbord">
+        <div className="userDashbord-container">
+            <div><UserMenu/></div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                Fees
+                </div>
+            </div>
+        </div>
+    </div> 
+    </>
   )
 }
 

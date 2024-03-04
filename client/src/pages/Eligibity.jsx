@@ -5,7 +5,14 @@ const Eligibity = () => {
   return (
     <>
       <div className="userDashbord">
-      Eligibity
+        <div className="userDashbord-container">
+            <div><UserMenu/></div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                Eligibity
+                </div>
+            </div>
+        </div>
     </div> 
     </>
   )

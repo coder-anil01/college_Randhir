@@ -27,6 +27,7 @@ import AdmitionPending from './pages/admin/AdmitionPending'
 import UserReview from './pages/user/UserReview'
 import AdminReviws from './pages/admin/AdminReviws'
 import GalleryDashbord from './pages/admin/GalleryDashbord'
+import ScrollToTop from './component/ScrollToTop'
 
 const App = () => {
 
@@ -34,6 +35,7 @@ const App = () => {
     <>
     <Router>
       <Navbar/>
+      <ScrollToTop/>
         <ToastContainer
         autoClose={2000} />
         <Routes>

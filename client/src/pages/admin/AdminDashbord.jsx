@@ -7,7 +7,11 @@ const AdminDashbord = () => {
      <div className="userDashbord">
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
-            <div className='admin'></div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                AdminDashbord
+                </div>
+            </div>
         </div>
     </div>  
     </>

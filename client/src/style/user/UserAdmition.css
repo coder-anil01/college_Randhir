@@ -6,11 +6,10 @@
     padding-left: 5vw;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-between;
 }
 .admition-item-card{
     margin: 10px auto;
-    padding-inline: 15px;
 }
 .admition-item-lable{
     margin-block: 3px;
@@ -19,9 +18,8 @@
     color: red;
 }
 .admition-input{
-    width: 60%;
     width: 25vw;
-    min-width: 250px;
+    min-width: 200px;
     padding: 8px;
     font-size: 15px;
     border-radius: 5px;
@@ -62,4 +60,24 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+/* PAD */
+@media screen and (max-width: 800px) {
+    .admition-container{
+        padding-left: 0;
+    }
+    .admition-input{
+        width: 38vw;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 500px) {
+    .admition-container{
+        flex-direction: column;
+    }
+    .admition-input{
+        width: 75vw;
+    }
 }

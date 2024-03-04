@@ -1,11 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import AdminMenu from './AdminMenu'
-import {useDropzone} from 'react-dropzone'
+import React, { useState, useCallback, useEffect } from 'react';
+import AdminMenu from './AdminMenu';
+import {useDropzone} from 'react-dropzone';
 import { toast } from 'react-toastify';
 import { RiUpload2Fill } from 'react-icons/ri';
 import imageCompression from 'browser-image-compression';
 import axios from 'axios';
-import '../../style/admin/Gallery.css'
+import '../../style/admin/Gallery.css';
 import { IoClose } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 
@@ -16,6 +16,10 @@ const GalleryDashbord = () => {
     const[imageOpen, setImageOpen] = useState(false)
     const[imageModel, setImagemodel] = useState('')
     const[imageModelId, setImagemodelId] = useState('')
+    const [sortData, setSortData] = useState([]);
+    const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(0);
+    const [button, setButton] = useState('Upload')
 
     // image compress
     const options = {
@@ -47,22 +51,34 @@ const GalleryDashbord = () => {
 
 // 
     const handlePostImage = async() => {
+      setButton('Uploading...');
         try {
+          if(images[0]){
             const {data} = await axios.post('/api/v1/gallery/create', {images})
+            setButton('Upload')
             toast(data.message);
             if(data.success){
                 setImages([]);
-                setFetchimage(data.images)
+                setFetchimage(data.images);
+                setSortData(data?.images.slice(0,12));
+                setTotal(data?.images?.length);
             }
+          }else{
+            toast.info("Please Choose Image");
+            setButton('Upload');
+          }
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            setButton('Upload');
         }
     }
 
     const getImages = async() => {
         try {
             const {data} = await axios.get('/api/v1/gallery/get')
-            setFetchimage(data?.images)
+            setFetchimage(data?.images);
+            setSortData(data?.images.slice(0,12));
+            setTotal(data?.images?.length);
         } catch (error) {
             console.log(error);
         }
@@ -70,6 +86,11 @@ const GalleryDashbord = () => {
     useEffect(()=>{
         getImages();
     },[])
+    const loadMore = () => {
+      const newData = fetchimage.slice(0, (page + 1)*12);
+      setSortData(newData);
+      setPage(prev => prev+1);
+    }
 
     const handleDelete = async() => {
       try {
@@ -98,18 +119,19 @@ const GalleryDashbord = () => {
                         <img src={i} alt="" key={index}/>
                     ))}
                 </div>
-                <button className='admin-upload-img-button' onClick={handlePostImage}>Upload</button>
+                <button className='admin-upload-img-button' onClick={handlePostImage}>{button}</button>
 
 {/* SHOW */}
                 <div className="gallery">
                   <h1 className="about-heading">OUR <span>GALLERY</span></h1>
                   <div className="admin-gallery-container">
-                   {fetchimage?.map((p, index)=>(
+                   {sortData?.map((p, index)=>(
                      <div className="admin-gallery-card" key={index}>
                      <img onClick={()=> {setImagemodel(p?.gallery), setImageOpen(true), setImagemodelId(p?._id)} } src={p?.gallery} alt="School pic" />
                    </div>
                    ))}
                  </div>
+                 {total != sortData?.length && <button onClick={loadMore} className='gallery-image-more'>Load More</button>}
                </div>
             </div>
         </div>

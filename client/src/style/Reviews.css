@@ -1,34 +1,92 @@
-.review{
+.home-reviews{
     width: 100%;
 }
-.review-container{
-    padding: 20px 5vw;
-    place-items: center;
-}
-.slick-prev,
-.slick-next{
-    background-color: green !important;
+.reviews-arrow-right,
+.reviews-arrow-left{
+    color: white;
+    background-color: green;
+    font-size: 25px;
+    cursor: pointer;
     border-radius: 50%;
-
+    padding: 3px;
+    margin-top: 150px;
 }
-.review-card{
-    width: 80% !important;
-    display: flex;
-    justify-content: center;
+.reviews-arrow-right{
+    float: right;
+    margin-right: 20px;
+}
+.reviews-arrow-left{
+    float: left;
+    margin-left: 20px;
+}
+.home-reviews-container{
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.home-reviews-card{
+    background-color: #f0f0f0;
     margin: 10px;
-    background-color: white;
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 5px 1px green;
-    border: 3px solid green;
+    border-radius: 5px;
+    box-shadow: 0 0 5px ;
 }
-.review-card img{
-    width: 100px;
+.home-reviews-card img{
+    height: 100px;
     width: 100px;
     object-fit: cover;
     border-radius: 50%;
 }
-.review-card div{
-    margin-block: 15px;
+.home-reviews-name{
+    margin-block: 10px;
 }
-.review-card p{}
+.home-reviews-star{
+    display: flex;
+}
+.home-reviews-star div{
+    margin: 10px 5px;
+    color: gold;
+    font-size: 20px;
+}
+.home-reviews-message{
+    height: 100px;
+    overflow: scroll;
+    margin-block: 5px;
+}
+
+
+
+/* RES */
+@media only screen and (max-width: 800px) {
+    .home-reviews-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .home-reviews-container>*:nth-child(3n){
+        display: none;
+    }
+}
+
+/* RES */
+@media only screen and (max-width: 500px) {
+    .home-reviews-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .home-reviews-container>*:nth-child(2n){
+        display: none;
+    }
+    .home-reviews-card img{
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .home-reviews-container{
+        padding: 0;
+    }
+    .reviews-arrow-right{
+        margin-right: 10px;
+    }
+    .reviews-arrow-left{
+        margin-left: 10px;
+    }
+}

@@ -5,6 +5,11 @@ const Contact = () => {
     <div>
       Contact
 Contact
+<div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                AdminNotifaction
+                </div>
+            </div>
     </div>
   )
 }

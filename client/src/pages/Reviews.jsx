@@ -1,77 +1,71 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import '../style/Reviews.css'
-import axios from "axios";
-import { FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa6";
-
+import {FaStar, FaRegStar} from 'react-icons/fa'
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
+import {toast} from 'react-toastify';
 const Reviews = () => {
 
   const [reviews, setReviews] = useState([]);
+  const [current, setCurrent] = useState([]);
+  const [currentpage, setCurrentpage] = useState(1);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 2,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          dots: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
+  const classcard = "home-reviews-card"
   const getReviews = async () => {
-    try {
-      const {data} = await axios.get('/api/v1/review/getpublish')
-      setReviews(data.reviews)
-    } catch (error) {
-      console.log(error);
+        try {
+          const {data} = await axios.get('/api/v1/review/getpublish')
+          setReviews(data.reviews)
+          setCurrent(data?.reviews.slice(0,3))
+          
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      useEffect(()=>{
+        getReviews();
+      },[])
+
+  const handelenext = () => {
+    const nextreview = reviews.slice(currentpage, currentpage+3);
+    if(nextreview.length >= 1){
+      setCurrent(nextreview);
+      setCurrentpage(prev => prev+1);
+    }else{
+      toast.info( "This is the last Review")
     }
   }
-  useEffect(()=>{
-    getReviews();
-  },[])
+
+  const handeleprev = () => {
+    const nextreview = reviews.slice(currentpage-2, currentpage+1);
+    if(currentpage > 1){
+      setCurrent(nextreview);
+      setCurrentpage(prev => prev-1);
+    }else{
+      toast.info( "This is the First Review")
+    }
+  }
 
   return (
     <>
-     <div className="review">
-     <h1 className="about-heading">STUDENTS <span>REVIEWS</span></h1>
-        <div className="review-container">
-          <Slider {...settings}>
-            {reviews.map((r)=>(
-            <div className="review-card" key={r?._id}>
-              <img src={r?.profileImg} alt="" />
-              <div>{r?.name}</div>
-              <div className='admin-dashbord-star'>
-                        {[1,1,1,1,1].map((s, index)=>(
-                          <div key={index}>{index >= r?.star ? <FaRegStar/>:<FaStar/>}</div>
-                        ))}
-                    </div>
-              <p>{r?.message.slice(0,500)}...</p>
+    {current?.[0] && <div className='home-reviews'>
+      <h1 className="about-heading">Students <span>Reviews</span></h1>
+        <FaAngleDoubleLeft className='reviews-arrow-left' onClick={handeleprev}/>
+        <FaAngleDoubleRight className='reviews-arrow-right' onClick={handelenext}/>
+      <div className="home-reviews-container">
+        {current?.map((r, index)=>(
+          <div className="home-reviews-card" key={index}>
+            <img src={r?.profileImg} alt="" />
+            <div className='home-reviews-name'>{r?.name}</div>
+            <div className='home-reviews-star'>
+            {[1,1,1,1,1].map((s, index)=>(
+              <div key={index}>{index >= r?.star ? <FaRegStar/>:<FaStar/>}</div>
+              ))}
             </div>
-            ))}
-          </Slider>
-        </div>
+            <div className="home-reviews-message">{r?.message}</div>
+          </div>
+        ))}
       </div>
+    </div>}
     </>
   )
 }

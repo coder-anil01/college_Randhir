@@ -7,7 +7,11 @@ const Chat = () => {
       <div className="userDashbord">
         <div className="userDashbord-container">
             <div><UserMenu/></div>
-            <div>Chat</div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                Chat
+                </div>
+            </div>
         </div>
     </div> 
     </>

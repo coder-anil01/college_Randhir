@@ -1,12 +1,23 @@
 .user-admition-notifaction-card{
     background-color: green;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     color: white;
-    padding: 20px;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-block: 10px;
 }
-.user-admition-notifaction-name{}
+.user-admition-notifaction-name,
+.user-admition-notifaction-status,
+.user-admition-notifaction-course{
+    margin: 10px;
+}
 .user-admition-notifaction-status{}
 .user-admition-notifaction-course{}
+
+@media screen and (max-width: 600px) {
+    .user-admition-notifaction-card{
+        flex-direction: column;
+    }
+}

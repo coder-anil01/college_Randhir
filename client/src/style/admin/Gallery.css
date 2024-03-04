@@ -11,12 +11,13 @@
     flex-wrap: wrap;
 }
 .admin-upload-img-show-card img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
 }
 .admin-upload-img-button{
     background-color: green;
+    color: white;
     border: none;
     width: 300px;
     margin: 20px auto;
@@ -24,6 +25,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 /* show */
 .admin-gallery-container{
     display: grid;
@@ -36,13 +38,10 @@
     object-fit: contain;
     width: 95%;
     border-radius: 5px !important;
-    border: 2px solid green;
     transition: all 0.3s;
     cursor: pointer;
-    box-shadow: 3px 3px 5px 1px green;
+    box-shadow: 3px 3px 5px 1px;
 }
-
-
 .admin-image-model-delete{
     position: absolute;
     left: 20px;
@@ -51,4 +50,26 @@
     color: red;
     padding: 10px;
     cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .admin-upload-img-container{
+        padding-left: 0;
+    }
+    
+    /* show */
+    .admin-gallery-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    
+    /* show */
+    .admin-gallery-container{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
 }

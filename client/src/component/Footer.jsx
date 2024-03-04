@@ -18,10 +18,10 @@ const Footer = () => {
         <div className="footer-card">
             <img className='footer-schoollogo' src={Schoollogo} alt="" />
             <div className='footer-card-icons'>
-                <span><FaInstagramSquare/></span>
-                <span><FaTwitterSquare/></span>
-                <span><FaFacebook/></span>
-                <span><SiGooglechrome/></span>
+                <Link to=''><FaInstagramSquare/></Link>
+                <Link to=''><FaTwitterSquare/></Link>
+                <Link to=''><FaFacebook/></Link>
+                <Link to=''><SiGooglechrome/></Link>
             </div>
         </div>
         <div className="footer-card">
@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
       <div className="footer-bootom">
         <div>@Copyright 2024 All Rights </div>
-        <Link to='https://coderanil.vercel.app' target='_blank'>By Coder_anil</Link>
+        <Link to='https://coderanil.vercel.app' target='_blank'>Maker Coder_anil</Link>
       </div>
     </div>
   )

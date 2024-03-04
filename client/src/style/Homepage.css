@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lora:ital,wght@0,400..700;1,400..700&family=Madimi+One&display=swap');
+
+/* font-family: "Lora", serif; */
+/* font-family: "Madimi One", sans-serif; */
+/* font-family: "Bungee Spice", sans-serif; */
+
+
 .Homepage{
     width: 100%;
 }
@@ -6,9 +13,10 @@
 }
 .homepage-first{
     background-image: url(https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    width: 100%;
     min-height: 95vh;
-    background-position: center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .homepage-notifaction{
     padding-top: 20px;
@@ -19,20 +27,22 @@
 .homepage-first-text-first{
     text-align: center;
     color: white;
-    font-size: 80px;
+    font-size: 60px;
     font-weight: 900;
     padding: 10vh 5vw;
     text-shadow: 5px 5px 6px black;
+    font-family: "Lora", serif;
     animation: fadeInOp 1s ease-in-out forwards;
 }
 .homepage-first-text-sec{
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     color: white;
     font-weight: 1000;
     padding-inline: 5vw;
     text-shadow: 4px 4px 16px black;
     animation: fadeInOp 1s ease-in-out forwards;
+    font-family: "Madimi One", sans-serif
 }
 @keyframes fadeInOp {
     from {
@@ -64,28 +74,35 @@
     margin: 0 5vw;
     display: grid;
     grid-template-columns: 40vw auto;
+    grid-gap: 20px;
 }
 .about-image{
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 5px;
     width: 90%;
-    max-height: 90vh;
-    box-shadow: 10px 10px 15px 1px black;
+    min-height: 70vh;
+    min-width: 300px;
+    box-shadow: 5px 5px 10px 1px black;
 }
 .about-text{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly !important;
 }
-.about-text p{
+.about-text li{
     font-weight: 600;
     opacity: 0.8;
+    line-height: 1.5em;
+    margin-block: 5px;
 }
 
 
 /* GALLARY  /////////// */
 .gallery{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .gallery-container{
     margin: 0 5vw;
@@ -99,10 +116,9 @@
     object-fit: contain;
     width: 95%;
     border-radius: 5px !important;
-    border: 2px solid green;
     transition: all 0.3s;
     cursor: pointer;
-    box-shadow: 3px 3px 5px 1px green;
+    box-shadow: 5px 5px 5px 1px;
 }
 .gallery-card img:hover{
     scale: 1.05;
@@ -129,4 +145,119 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.gallery-image-more{
+    width: 150px;
+    background-color: green;
+    padding: 10px;
+    border: none;
+    margin-block: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/************** PAD ***************/
+@media only screen and (max-width: 800px) {
+    .homepage-first-text-first{
+        font-size: 50px;
+    }
+    .homepage-first-text-sec{
+        font-size: 30px;
+    }
+    
+    /* ABOUT   ///////////////// */
+    .about{
+        width: 100%;
+    }
+    .about-heading{
+        margin-top: 50px;
+        font-size: 40px;
+    }
+    .about-container{
+        margin: 0 1vw;
+        display: grid;
+        grid-template-columns: 50vw auto;
+        grid-gap: 10px;
+    }
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly !important;
+    }
+    .about-text li{
+        line-height: 1.3em;
+        margin-block: 3px;
+        font-size: 14px;
+    }
+    .about-text >*:nth-child(3n){
+        display: none;
+    }
+    
+    /* GALLARY  /////////// */
+    .gallery-container{
+        margin: 0 2vw;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+}
+
+
+
+
+/************** MOBILE ***************/
+@media only screen and (max-width: 800px) {
+    .homepage-first-text-first{
+        font-size: 30px;
+        margin-block: 15vh;
+    }
+    .homepage-first-text-sec{
+        font-size: 20px;
+    }
+    
+    /* ABOUT   ///////////////// */
+    .about{
+        width: 100%;
+    }
+    .about-heading{
+        margin-top: 30px;
+        font-size: 30px;
+    }
+    .about-container{
+        margin: 0 2vw;
+        display: flex;
+    }
+    .about-image{
+        display: none;
+    }
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly !important;
+    }
+    .about-text li{
+        line-height: 1.3em;
+        margin-block: 3px;
+        font-size: 14px;
+    }
+    .about-text >*:nth-child(3n){
+        display: none;
+    }
+    
+    /* GALLARY  /////////// */
+    .gallery-container{
+        margin: 0 2vw;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+    }
+    .gallery-card img{
+        box-shadow: 3px 3px 3px 1px;
+        border-radius: 2px !important;
+    }
 }

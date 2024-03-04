@@ -1,5 +1,6 @@
 .user-dashbord{
     width: 100%;
+    min-height: 90vh;
 }
 .user-dashbord-container{
     padding: 2vw 5vw;
@@ -44,3 +45,10 @@
 }
 .user-dashborddata-link-lable{}
 .user-dashborddata-link-link{}
+
+
+.show-loading-loader{
+    text-align: center;
+    width: 100%;
+    margin-top: 40vh;
+}

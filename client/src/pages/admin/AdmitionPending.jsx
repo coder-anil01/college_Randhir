@@ -66,7 +66,6 @@ const AdmitionPending = () => {
                     <div className="admition-name">{a?.name}</div>
                     <div className="admition-email">{a?.email}</div>
                     <div className="admition-course">{a?.course}</div>
-                    <div className="admition-phone">+91 1234567890</div>
                     <div className="admition-date">{new Date(a?.createdAt).toLocaleString().slice(0,10)}</div>
                   </div>
                 ))}

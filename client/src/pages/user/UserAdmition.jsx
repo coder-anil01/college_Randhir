@@ -124,12 +124,16 @@ const UserAdmition = () => {
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Course <span>*</span></div>
-                        <input type="text"
-                            value={course}
-                            onChange={(e)=>setCourse(e.target.value)}
-                             className="admition-input"
-                             placeholder='Your Course'/>
+                        <select onChange={(e)=>setCourse(e.target.value)} className="admition-input">
+                      <option value="9th">Choose an option</option>
+                      <option value="9th">9th</option>
+                      <option value="10th">10th</option>
+                      <option value="12th in Science">12th in Science</option>
+                      <option value="12th in Arts">12th in Arts</option>
+                      <option value="12th in Commerce">12th in Commerce</option>
+                    </select>
                     </div>
+
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Father Name <span>*</span></div>
                         <input type="text"

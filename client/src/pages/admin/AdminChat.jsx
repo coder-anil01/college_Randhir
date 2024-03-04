@@ -6,7 +6,11 @@ const AdminChat = () => {
     <div className="userDashbord">
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
-            <div>AdminChat</div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                AdminChat
+                </div>
+            </div>
         </div>
     </div>
   )

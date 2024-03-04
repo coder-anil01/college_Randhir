@@ -127,3 +127,36 @@
     font-size: 30px;
     color: green;
 }
+
+/* RES */
+@media screen and (max-width: 450px) {
+    .login-container{
+        width: 80vw;
+        min-width: 200px;
+    }
+    .radioButton{
+        padding: 8px;
+    }
+    .login-form{
+        margin-top: 0;
+    }
+    .login-form-heading{
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    .login-form-items{
+        margin: 5px;
+        padding: 0;
+    }
+    .login-form-input{
+        padding: 8px 0px 8px 30px;
+        font-size: 15px;
+    }
+    .login-form-image-card{
+        width: 80px;
+        height: 80px;
+        margin-block: 10px;
+    }
+
+
+}

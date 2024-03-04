@@ -6,13 +6,17 @@ import "../../style/user/Notification.css"
 
 const Notifacction = () => {
   const [admition, setAdmition] = useState('');
+  const [loading, setLoading] = useState('Loading...')
   const [auth] = useAuth();
 
   const getAdmition = async() => {
     try {
       const {data} = await axios.post('/api/v1/admition/useradmitioncheck', {email: auth?.user?.email, name: auth?.user?.name});
-      setAdmition(data?.admition)
-      console.log(data)
+      if(data.seccess){
+        setAdmition(data?.admition)
+      }else{
+        setLoading('Data Not Found');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -27,11 +31,11 @@ const Notifacction = () => {
           <div><UserMenu/></div>
           <div className='admition'>
             <div className="admition-container">
-              {admition && <div className='user-admition-notifaction-card'>
+              {admition ? <div className='user-admition-notifaction-card'>
                 <div className="user-admition-notifaction-name"><strong>Username: </strong>{admition?.name}</div>
                 <div className="user-admition-notifaction-course"><strong>Course: </strong>{admition?.course}</div>
                 <div className="user-admition-notifaction-status"><strong>Proccess Status: </strong>{admition?.status}</div>
-              </div>}
+              </div>: <div className='show-loading-loader'>{loading}</div>}
             </div>
           </div>
       </div>

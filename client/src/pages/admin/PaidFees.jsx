@@ -6,7 +6,11 @@ const PaidFees = () => {
     <div className="userDashbord">
         <div className="userDashbord-container">
             <div><AdminMenu/></div>
-            <div>PaidFees</div>
+            <div className='user-dashbord'>
+                <div className="user-dashbord-container">
+                PaidFees
+                </div>
+            </div>
         </div>
     </div>
   )

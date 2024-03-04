@@ -28,3 +28,14 @@
 .menu-active{
     background-color: #ff18bd !important;
 }
+
+
+/* res */
+@media only screen and (max-width: 800px) {
+    .userDashbord-container{
+        display: flex;
+    }
+    .user-Menu{
+        display: none;
+    }
+}

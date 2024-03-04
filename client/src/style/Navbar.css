@@ -52,4 +52,55 @@
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
+    text-align: center;
+}
+.navbar-menu{
+    display: none;
+}
+
+
+/* RES */
+@media only screen and (max-width: 800px) {
+    
+    .navbar-menu{
+        display: flex;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    .navbar-menu-open{
+        animation: rotate 0.3s ease-in-out forwards;
+    }
+    .navbar-menu-close{
+        animation: rotate 0.3s ease-in-out forwards;
+    }
+    
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(180deg);
+        }
+        to {
+            transform: rotate(0);
+        }
+      }
+    
+    .navbar-tem{
+        display: none;
+    }
+    .navbar-res-item-card{
+        z-index: 100;
+        position: fixed;
+        width: 50vw;
+        padding-inline: 10vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+    }
+    .navbar-res-item{
+        text-decoration: none;
+        color: black;
+        padding-block: 15px;
+        text-align: center;
+    }
 }

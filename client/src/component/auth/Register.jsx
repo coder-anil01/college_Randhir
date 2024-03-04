@@ -87,7 +87,7 @@ const Register = (props) => {
               onChange={(e)=> setName(e.target.value)}
               placeholder='Enter Your Name'
               className='login-form-input'
-              required/>
+              autoFocus required/>
           </div>
 
           <div className='login-form-items'>
