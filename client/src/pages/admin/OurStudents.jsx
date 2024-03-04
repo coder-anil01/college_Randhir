@@ -35,10 +35,8 @@ const OurStudents = () => {
                 {students?.map((a, index)=>(
                   <div className="admition-card" key={a?._id} onClick={()=>handleOpenModel(a)}>
                     <div className="admition-index">{index+1} .</div>
-                    <div className="admition-name">{a?.name}</div>
                     <div className="admition-email">{a?.email}</div>
                     <div className="admition-course">{a?.details?.course}</div>
-                    <div className="admition-phone">{a?.details?.phone}</div>
                     <div className="admition-date">{new Date(a?.details?.createdAt).toLocaleString().slice(0,10)}</div>
                   </div>
                 ))}
@@ -93,7 +91,7 @@ const OurStudents = () => {
         <div className="admition-model-card">
           <div className="admition-model-lable">Date Of Birth <span>*</span></div>
           <input type="text"
-            value={selectedData?.details?.dob}
+            value={new Date(selectedData?.details?.dob).toLocaleString().slice(0,10)}
             className="admition-model-text" disabled/>
         </div>
         <div className="admition-model-card">

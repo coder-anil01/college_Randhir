@@ -119,8 +119,7 @@ const UserAdmition = () => {
                         <input type="date"
                             value={dob}
                             onChange={(e)=>setDob(e.target.value)}
-                             className="admition-input"
-                             placeholder='Your Email'/>
+                             className="admition-input"/>
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Course <span>*</span></div>
@@ -140,7 +139,7 @@ const UserAdmition = () => {
                             value={fatherName}
                             onChange={(e)=>setFatherName(e.target.value)}
                              className="admition-input"
-                             placeholder='Your Course'/>
+                             placeholder='Your Father Name'/>
                     </div>
                     <div className="admition-item-card">
                         <div className="admition-item-lable">Mother Name <span>*</span></div>
@@ -148,7 +147,7 @@ const UserAdmition = () => {
                             value={motherName}
                             onChange={(e)=>setMotherName(e.target.value)}
                              className="admition-input"
-                             placeholder='Your Course'/>
+                             placeholder='Your Mother Name'/>
                     </div>
                    <div className="admition-item-card">
                         <div className="admition-item-lable">Student Photo <span>*</span></div>

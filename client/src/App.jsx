@@ -28,6 +28,8 @@ import UserReview from './pages/user/UserReview'
 import AdminReviws from './pages/admin/AdminReviws'
 import GalleryDashbord from './pages/admin/GalleryDashbord'
 import ScrollToTop from './component/ScrollToTop'
+import LogoutAdmin from './pages/admin/LogoutAdmin'
+import Logout from './pages/user/Lougout'
 
 const App = () => {
 
@@ -53,6 +55,7 @@ const App = () => {
             <Route path='notifaction' element={<Notifacction/>}/>
             <Route path='review' element={<UserReview/>}/>
             <Route path='fees' element={<Fees/>}/>
+            <Route path='logout' element={<Logout/>}/>
           </Route>
 
 {/* ADMIN */}
@@ -67,6 +70,7 @@ const App = () => {
             <Route path='chat' element={<AdminChat/>}/>
             <Route path='notifaction' element={<AdminNotifaction/>}/>
             <Route path='fees' element={<PaidFees/>}/>
+            <Route path='logout' element={<LogoutAdmin/>}/>
           </Route>
 
         </Routes>

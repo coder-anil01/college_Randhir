@@ -8,7 +8,7 @@
 }
 .admition-card{
     display: grid;
-    grid-template-columns: 30px 1fr 1fr 1fr auto auto;
+    grid-template-columns: 30px 1fr 1fr auto;
     background-color: green;
     margin-block: 10px;
     color: white;
@@ -23,15 +23,8 @@
     width: 30px;
     text-align: center;
 }
-.admition-name{
-    margin-inline: 10px;
-}
 .admition-email{}
 .admition-course{}
-.admition-phone{
-    width: 130px;
-    margin-inline: 10px;
-}
 .admition-date{
     width: 100px;
 }
@@ -51,6 +44,7 @@
     max-width: 800px;
     min-height: 80%;
     border-radius: 10px;
+    border: 4px solid #ff18bd;
 }
 .admition-model-close{
     padding: 10px;
@@ -71,6 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-block: 10px;
 }
 .admition-model-profile img{
     width: 80px;
@@ -115,7 +110,6 @@
 .admition-model-button{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     margin-block: 30px;
 }
@@ -132,4 +126,66 @@
 }
 .admition-model-button-accept{
     background-color: green;
+}
+
+@media screen and (max-width: 768px) {
+    .admin-admition-container{
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 500px) {
+    .admition-card{
+        font-size: 10px;
+    }
+
+
+    .admition-model{
+        font-size: 10px !important;
+    }
+
+/* MODEL */
+/* .admition-model-close{
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: green;
+    font-size: 20px;
+    cursor: pointer;
+} */
+/* .admition-model-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+} */
+/* .admition-model-profile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+/* .admition-model-profile img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-inline: 10px;
+} */
+.admition-model-docs{
+    margin: 10px;
+}
+
+.admition-model-card{
+   margin: 3px;
+}
+.admition-model-lable{
+    font-size: 10px;
+}
+
+.admition-model-button{
+    margin-block: 20px;
+}
+.admition-model-button button{
+    width: 150px;
+}
 }

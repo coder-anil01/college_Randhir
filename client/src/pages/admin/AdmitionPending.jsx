@@ -36,6 +36,7 @@ const AdmitionPending = () => {
       toast(data?.message);
       if(data.success){
         setOpenModel(false);
+        setAllAdmition(data.admition);
       }
     } catch (error) {
       console.log(error);
@@ -48,6 +49,7 @@ const AdmitionPending = () => {
       toast(data?.message);
       if(data.success){
         setOpenModel(false);
+        setAllAdmition(data.admition);
       }
     } catch (error) {
       console.log(error);
@@ -63,7 +65,6 @@ const AdmitionPending = () => {
                 {allAdmition?.map((a, index)=>(
                   <div className="admition-card" key={a?._id} onClick={()=>handleOpenModel(a)}>
                     <div className="admition-index">{index+1} .</div>
-                    <div className="admition-name">{a?.name}</div>
                     <div className="admition-email">{a?.email}</div>
                     <div className="admition-course">{a?.course}</div>
                     <div className="admition-date">{new Date(a?.createdAt).toLocaleString().slice(0,10)}</div>
@@ -112,6 +113,12 @@ const AdmitionPending = () => {
             className="admition-model-text" disabled/>
         </div>
         <div className="admition-model-card">
+          <div className="admition-model-lable">Phone <span>*</span></div>
+          <input type="text"
+            value={selectedData?.phone}
+            className="admition-model-text" disabled/>
+        </div>
+        <div className="admition-model-card">
           <div className="admition-model-lable">Course <span>*</span></div>
           <input type="text"
             value={selectedData?.course}
@@ -120,7 +127,7 @@ const AdmitionPending = () => {
         <div className="admition-model-card">
           <div className="admition-model-lable">Date Of Birth <span>*</span></div>
           <input type="text"
-            value={selectedData?.dob}
+            value={new Date(selectedData?.dob).toLocaleString().slice(0,10)}
             className="admition-model-text" disabled/>
         </div>
         <div className="admition-model-card">

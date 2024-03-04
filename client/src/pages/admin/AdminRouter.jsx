@@ -21,6 +21,7 @@ const AdminRouter = () => {
               setAdmin(false);
             }
         } catch (error) {
+          setAdminTime(true)
             console.log(error)
             setAdminStatus('Server Error');
         }
@@ -31,10 +32,14 @@ const AdminRouter = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[auth])
 
+    const handleNavigate =()=> {
+      return navigate('/')
+    }
+
   return (
     <>
       {adminTime ?
-      <>{admin ? <Outlet/> : navigate('/')}</> :
+      <>{admin ? <Outlet/> : <div>{handleNavigate()}</div>}</> :
       <div className='admin-route-loading'>{adminStatus}</div>}
     </>
   )

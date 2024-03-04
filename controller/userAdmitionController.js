@@ -90,9 +90,11 @@ export const approveAdmition = async(req, res) => {
         const admition = await new userdetailsModel({dob,phone,course,fatherName,motherName,aadharcard,prevCertificate,otherDocument}).save();
         const existUser = await userModel.findOneAndUpdate({email}, { $set: {details: admition._id, profileImg},}, {new: true});
         await userAdmitionModel.findByIdAndDelete(_id);
+        const getadmition = await userAdmitionModel.find({status: "Pending"}).sort({ createdAt: -1});
         res.status(200).send({
             success: true,
-            message: "Admition Successfully"
+            message: "Admition Successfully",
+            admition: getadmition,
         })
     } catch (error) {
         console.log(error)
@@ -109,10 +111,12 @@ export const approveAdmition = async(req, res) => {
 export const rejectAdmition = async(req, res) => {
     const {id} = req.body;
     try {
-        const admition = await userAdmitionModel.findByIdAndUpdate(id, {status: "Rejected"})
+        const admition = await userAdmitionModel.findByIdAndUpdate(id, {status: "Rejected"});
+        const getadmition = await userAdmitionModel.find({status: "Pending"}).sort({ createdAt: -1});
         res.status(200).send({
             success: true,
-            message: "Admition Successfully"
+            message: "Admition Successfully",
+            admition: getadmition,
         });
     } catch (error) {
         console.log(error)

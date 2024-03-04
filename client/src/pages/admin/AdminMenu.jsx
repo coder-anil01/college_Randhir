@@ -18,6 +18,7 @@ const AdminMenu = () => {
       <NavLink className={location.pathname == '/admin/chat' && 'menu-active'} to='/admin/chat'>Chat With Student</NavLink>
       <NavLink className={location.pathname == '/admin/notifaction' && 'menu-active'} to='/admin/notifaction'>Notifaction</NavLink>
       <NavLink className={location.pathname == '/admin/fees' && 'menu-active'} to='/admin/fees'>Paid Fees</NavLink>
+      <NavLink className={location.pathname == '/admin/logout' && 'menu-active'} to='/admin/logout'>Log Out</NavLink>
     </div>
   )
 }

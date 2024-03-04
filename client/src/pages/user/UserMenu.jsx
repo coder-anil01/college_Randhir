@@ -15,6 +15,7 @@ const UserMenu = () => {
       <NavLink className={location.pathname == '/dashbord/review' && 'menu-active'} to='/dashbord/review'>Review</NavLink>
       <NavLink className={location.pathname == '/dashbord/chat' && 'menu-active'} to='/dashbord/chat'>Chat With Us</NavLink>
       <NavLink className={location.pathname == '/dashbord/fees' && 'menu-active'} to='/dashbord/fees'>Fees</NavLink>
+      <NavLink className={location.pathname == '/dashbord/logout' && 'menu-active'} to='/dashbord/logout'>Logout</NavLink>
     </div>
   )
 }
