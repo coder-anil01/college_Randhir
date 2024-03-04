@@ -19,6 +19,7 @@ const AdminRouter = () => {
               setAdmin(true)
             }else{
               setAdmin(false);
+              navigate('/');
             }
         } catch (error) {
           setAdminTime(true)
@@ -28,12 +29,16 @@ const AdminRouter = () => {
     }
 
     useEffect(()=>{
-        if(auth?.user?.role === 8987 )authCheck();
+        if(auth?.user?.role === 8987 ){
+          authCheck();
+        }else{
+          navigate('/');
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[auth])
 
     const handleNavigate =()=> {
-      return navigate('/')
+      return navigate('/');
     }
 
   return (
