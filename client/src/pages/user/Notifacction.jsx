@@ -12,7 +12,7 @@ const Notifacction = () => {
   const getAdmition = async() => {
     try {
       const {data} = await axios.post('/api/v1/admition/useradmitioncheck', {email: auth?.user?.email, name: auth?.user?.name});
-      if(data.seccess){
+      if(data.success){
         setAdmition(data?.admition)
       }else{
         setLoading('Data Not Found');
